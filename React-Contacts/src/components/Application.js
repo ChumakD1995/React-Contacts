@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AddContact from './AddContact';
 
 function Application() {
   const [contacts, setContacts] = useState([]);
@@ -22,7 +23,7 @@ function Application() {
   };
 
   return (
-    <div>
+    <div className='form'>
       <h1>Список контактів</h1>
       <table>
         <thead>
@@ -54,46 +55,7 @@ function Application() {
       ) : (
         <button onClick={() => setShowForm(true)}>Додати контакт</button>
       )}
-    </div>
-  );
-}
-
-function AddContact({ onSave, onCancel }) {
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const handleSave = () => {
-    const newContact = { name, username, phone };
-    onSave(newContact);
-    setName('');
-    setUsername('');
-    setPhone('');
-  };
-
-  return (
-    <div>
-      <h2>Додати новий контакт</h2>
-      <input
-        type="text"
-        placeholder="Ім'я"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Прізвище"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Телефон"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
-      <button onClick={handleSave}>Зберегти</button>
-      <button onClick={onCancel}>Скасувати</button>
+      
     </div>
   );
 }

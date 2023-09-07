@@ -1,5 +1,6 @@
 import React from 'react'
-import Application from './Application'
+import Application from './components/Application'
+import AddContact from './components/AddContact' 
 
 function App() {
   return (
